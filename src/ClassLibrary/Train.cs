@@ -13,6 +13,7 @@ namespace ClassLibrary
     /// </summary>
     public class Train
     {
+        
         /// <summary>
         /// Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
         /// </summary>
@@ -56,5 +57,31 @@ namespace ClassLibrary
             Console.Write("The engines are already stopped");
             return this.IsEngineStarted;
         }
+        private static int count = 0;
+
+        private string identificador;
+        public string Identificador 
+        {
+            get
+            {
+                return this.identificador;
+            }
+            set
+            {
+                this.identificador=value;
+            }
+        }
+
+        public Train (string identificador)
+        {
+            this.identificador = identificador;
+            count+=1;
+            Console.WriteLine(count);
+        }
+        ~Train()
+        {
+            count--;
+            Console.WriteLine("Se esta destruyendo");
+        } 
     }
 }
